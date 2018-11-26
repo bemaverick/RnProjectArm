@@ -10,7 +10,7 @@
     },
     "env": {
         "es6": true,
-        "jest": true,
+        "jest": false,
         "browser": true,
         "node": true
     },
@@ -22,6 +22,7 @@
     "rules": {
         // This to avoid an error from flow types with prefix `_t_`
         "camelcase": 0,
+        "operator-linebreak": 0,
         // This to avoid an error that all files with jsx must be with extension `jsx`
         "react/jsx-filename-extension": 0,
         // Avoid error when defined flow types for props at the top of the class
@@ -39,6 +40,7 @@
         "comma-dangle": 0,
         // Disable rule: strings must use singlequote.
         "quotes": 0,
+        "quote-props": [0, "as-needed"],
         "no-console": [
             "warn",
             {
@@ -59,8 +61,8 @@
         // Disable rule: expected the Promise rejection reason to be an Error.
         // It not allow explicitly return promise reject without error provided
         "max-lines": [
-          "warn",
-          300
+            "warn",
+            300
         ],
         "prefer-promise-reject-errors": 0,
         // TODO: find solution for resolve paths for import
@@ -74,7 +76,12 @@
         // Allow to use hasOwnProperty
         "no-prototype-builtin": 0,
         // Allow to not define default props for not required props
-        "react/require-default-props": 0
+        "react/require-default-props": 0,
+        // Disable error: 'navigation' is missing in props validation
+        "react/prop-types": [
+            "error",
+            { "ignore": ["navigation"] }
+        ]
     },
     "extends": [
         "airbnb",
